@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "python-repository-template" # TODO
+version = "0.1.0"
+description = ""
+authors = ["tokane888 <tokane888@gmail.com>"]   # TODO
+readme = "README.md"
+packages = [
+    { include = "python-repository-template", from="src" } # TODO
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"    # TODO
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+ruff = "^0.6.8"
+pytest-cov = "^5.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+# ruff(linter/formatter)の有効ルール。"ALL"は警告が増えすぎたので断念。
+# ルール一覧: https://docs.astral.sh/ruff/rules/
+lint.select = ["B", "E", "F", "I", "N", "UP", "W"]
+
+# linter対象から除外するディレクトリ。高速化のために指定
+exclude=[
+    ".git",
+    ".github",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+    "__pycache__",
+]
